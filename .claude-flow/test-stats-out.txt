@@ -1,0 +1,34 @@
+=== initialize ===
+{
+  "protocolVersion": "2024-11-05",
+  "serverInfo": {
+    "name": "ruflo",
+    "version": "3.0.0"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": true
+    },
+    "resources": {
+      "subscribe": true,
+      "listChanged": true
+    }
+  }
+}
+
+=== tools/list (293 tools) ===
+agent_spawn, agent_execute, agent_terminate, agent_status, agent_list, agent_pool, agent_health, agent_update, agent_logs, swarm_init, swarm_status, swarm_shutdown, swarm_health, memory_store, memory_retrieve, memory_search, memory_delete, memory_list, memory_stats, memory_migrate, memory_import_claude, memory_bridge_status, memory_search_unified, memory_detailed-stats, memory_cleanup, memory_compress, memory_export, memory_import, config_get, config_set, config_list, config_reset, config_export, config_import, hooks_intelligence_unified-stats, hooks_teammate-idle, hooks_task-completed, hooks_pre-edit, hooks_post-edit, hooks_pre-command, hooks_post-command, hooks_route, hooks_metrics, hooks_list, hooks_pre-task, hooks_post-task, hooks_explain, hooks_pretrain, hooks_build-agents, hooks_transfer, hooks_session-start, hooks_session-end, hooks_session-restore, hooks_notify, hooks_init, hooks_intelligence, hooks_intelligence-reset, hooks_intelligence_trajectory-start, hooks_intelligence_trajectory-step, hooks_intelligence_trajectory-end, hooks_intelligence_pattern-store, hooks_intelligence_pattern-search, hooks_intelligence_stats, hooks_intelligence_learn, hooks_intelligence_attention, hooks_worker-list, hooks_worker-dispatch, hooks_worker-status, hooks_worker-detect, hooks_worker-cancel, hooks_model-route, hooks_model-outcome, hooks_model-stats, hooks_codemod, task_create, task_status, task_list, task_complete, task_update, task_assign, task_cancel, task_retry, session_save, session_restore, session_list, session_delete, session_info, session_current, session_export, session_import, hive-mind_spawn, hive-mind_init, hive-mind_status, hive-mind_join, hive-mind_leave, hive-mind_consensus, hive-mind_broadcast, hive-mind_shutdown, hive-mind_memory, hive-mind_optimize-memory, workflow_run, workflow_create, workflow_execute, workflow_status, workflow_list, workflow_pause, workflow_resume, workflow_cancel, workflow_delete, workflow_template, workflow_stop, workflow_validate, analyze_diff, analyze_diff-risk, analyze_diff-classify, analyze_diff-reviewers, analyze_file-risk, analyze_diff-stats, progress_check, progress_sync, progress_summary, progress_watch, embeddings_init, embeddings_generate, embeddings_compare, embeddings_search, embeddings_neural, embeddings_hyperbolic, embeddings_status, embeddings_rabitq_build, embeddings_rabitq_search, embeddings_rabitq_status, claims_claim, claims_release, claims_handoff, claims_accept-handoff, claims_status, claims_list, claims_mark-stealable, claims_steal, claims_stealable, claims_load, claims_board, claims_rebalance, aidefence_scan, aidefence_analyze, aidefence_stats, aidefence_learn, aidefence_is_safe, aidefence_has_pii, transfer_detect-pii, transfer_ipfs-resolve, transfer_store-search, transfer_store-info, transfer_store-download, transfer_store-featured, transfer_store-trending, transfer_plugin-search, transfer_plugin-info, transfer_plugin-featured, transfer_plugin-official, system_status, system_metrics, system_health, system_info, system_reset, mcp_status, task_summary, mcp_start, mcp_stop, terminal_create, terminal_execute, terminal_list, terminal_close, terminal_history, neural_train, neural_predict, neural_patterns, neural_compress, neural_status, neural_optimize, performance_report, performance_bottleneck, performance_benchmark, performance_profile, performance_optimize, performance_metrics, github_repo_analyze, github_pr_manage, github_issue_track, github_workflow, github_metrics, daa_agent_create, daa_agent_adapt, daa_workflow_create, daa_workflow_execute, daa_knowledge_share, daa_learning_status, daa_cognitive_pattern, daa_performance_metrics, coordination_topology, coordination_load_balance, coordination_sync, coordination_node, coordination_consensus, coordination_orchestrate, coordination_metrics, browser_session_record, browser_session_end, browser_session_replay, browser_template_apply, browser_cookie_use, agentdb_health, agentdb_controllers, agentdb_pattern-store, agentdb_pattern-search, agentdb_feedback, agentdb_causal-edge, agentdb_causal-edge-delete, agentdb_causal-node-delete, agentdb_route, agentdb_session-start, agentdb_session-end, agentdb_hierarchical-store, agentdb_hierarchical-recall, agentdb_hierarchical-delete, agentdb_consolidate, agentdb_batch, agentdb_context-synthesize, agentdb_semantic-route, agentdb_graph-query, agentdb_graph-pathfinder, ruvllm_status, ruvllm_hnsw_create, ruvllm_hnsw_add, ruvllm_hnsw_route, ruvllm_sona_create, ruvllm_sona_adapt, ruvllm_microlora_create, ruvllm_microlora_adapt, ruvllm_chat_format, ruvllm_generate_config, wasm_agent_create, wasm_agent_prompt, wasm_agent_tool, wasm_agent_list, wasm_agent_terminate, wasm_agent_files, wasm_agent_export, wasm_gallery_list, wasm_gallery_search, wasm_gallery_create, wasm_agent_compose, wasm_agent_state, wasm_agent_todos, wasm_agent_tools, wasm_agent_turn_count, wasm_agent_is_stopped, wasm_agent_reset, wasm_gallery_load_rvf, wasm_gallery_configure, wasm_gallery_categories, wasm_gallery_list_by_category, wasm_gallery_add_custom, wasm_gallery_remove_custom, wasm_gallery_import, wasm_gallery_export, wasm_gallery_active, wasm_gallery_config, managed_agent_create, managed_agent_prompt, managed_agent_status, managed_agent_events, managed_agent_list, managed_agent_terminate, guidance_capabilities, guidance_recommend, guidance_discover, guidance_workflow, guidance_quickref, autopilot_status, autopilot_enable, autopilot_disable, autopilot_config, autopilot_reset, autopilot_log, autopilot_progress, autopilot_learn, autopilot_history, autopilot_predict, hooks_coverage-route, hooks_coverage-suggest, hooks_coverage-gaps
+
+=== tools/call memory_stats ===
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"initialized\": true,\n  \"totalEntries\": 17,\n  \"entriesWithEmbeddings\": 17,\n  \"embeddingCoverage\": \"100.0%\",\n  \"namespaces\": {\n    \"test\": 2,\n    \"system\": 3,\n    \"arch\": 1,\n    \"debug\": 1,\n    \"build\": 4,\n    \"sal\": 1,\n    \"diseases\": 4,\n    \"default\": 1\n  },\n  \"backend\": \"sql.js + HNSW\",\n  \"version\": \"3.0.0\",\n  \"features\": {\n    \"vectorEmbeddings\": true,\n    \"patternLearning\": true,\n    \"temporalDecay\": true\n  }\n}"
+      }
+    ]
+  }
+}

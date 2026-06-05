@@ -3,7 +3,7 @@
 **A complete guide for any AI agent (Claude Code, Hermes, Codex, Cursor) to install, wire, write, sync, and operate the Claude Flow V3 memory + MCP stack that lives in `C:\Users\becke\Ai workspaces\claude\ruflo\`.**
 
 **Date wired:** 2026-06-05
-**Status:** LIVE on Windows dev box. 293 MCP tools, 15 entries seeded, 100% embedding coverage.
+**Status:** LIVE on Windows dev box. 293 MCP tools, 18 entries (8 namespaces, 100% embedding coverage).
 **Audience:** any agent, any machine, any OS. The wiring is identical on Linux/macOS — only paths change.
 
 ---
@@ -73,10 +73,16 @@ ls node_modules/@claude-flow/  # must show: cli cli-core mcp memory neural
 cd "C:/Users/becke/Ai workspaces/claude/ruflo"
 npx claude-flow memory init
 # Output: "Verification passed (6/6 tests)"
-#         "Synced to: .../ruflo/.claude/memory.db"
+#         "Synced to: .../ruflo/.swarm/memory.db"
 ```
 
-**Critical:** the actual data file is `.claude/memory.db`, NOT `.claude-flow/data/` (despite what `config.yaml` claims). Always use the `.claude/` parent path in env vars.
+**Critical — the real data location:** despite what `config.yaml` says (`persistPath: .claude-flow/data`), the actual data lives in `.swarm/memory.db`. Always set `MEMORY_PATH` to `.../ruflo/.swarm`. If you see `.claude/memory.db` somewhere, it's an empty placeholder. Verify with:
+
+```bash
+# Find the populated DB
+ls -la ruflo/.swarm/memory.db   ruflo/.claude/memory.db
+# The .swarm one is the live data, the .claude one is the schema-only
+```
 
 ### 1.4. Verify with the test client
 
@@ -86,7 +92,7 @@ node scripts/mcp-test-client.mjs
 # Expect: "=== tools/list (293 tools) ===" and the tool list
 ```
 
-If the tool list shows 293 tools → install is good. If less → `rm -rf .claude/memory.db && npx claude-flow memory init`.
+If the tool list shows 293 tools → install is good. If less → `rm -rf .swarm/memory.db && npx claude-flow memory init`.
 
 ---
 
@@ -105,7 +111,7 @@ Edit `~/.claude/settings.json` → top-level `mcpServers`:
         "C:/Users/becke/Ai workspaces/claude/ruflo/node_modules/@claude-flow/cli/bin/mcp-server.js"
       ],
       "env": {
-        "MEMORY_PATH": "C:/Users/becke/Ai workspaces/claude/ruflo/.claude",
+        "MEMORY_PATH": "C:/Users/becke/Ai workspaces/claude/ruflo/.swarm",
         "MEMORY_BACKEND": "hybrid",
         "ENABLE_HNSW": "true",
         "CLAUDE_FLOW_MODE": "v3",
@@ -134,7 +140,7 @@ mcp_servers:
     args:
     - 'C:/Users/becke/Ai workspaces/claude/ruflo/node_modules/@claude-flow/cli/bin/mcp-server.js'
     env:
-      MEMORY_PATH: 'C:/Users/becke/Ai workspaces/claude/ruflo/.claude'
+      MEMORY_PATH: 'C:/Users/becke/Ai workspaces/claude/ruflo/.swarm'
       MEMORY_BACKEND: hybrid
       ENABLE_HNSW: 'true'
       CLAUDE_FLOW_MODE: v3
@@ -167,7 +173,7 @@ claude /mcp   # interactive: should list "claudeflow-memory" as connected
 # Manual smoke test (any agent)
 cd "C:/Users/becke/Ai workspaces/claude/ruflo"
 node scripts/mcp-test-client.mjs --call memory_stats '{}'
-# Expect: "totalEntries": 15 (or higher)
+# Expect: "totalEntries": 18 (or higher)
 ```
 
 ---
@@ -415,8 +421,12 @@ hermes mcp exec claudeflow-memory memory_export --json \
 
 ### Issue 2: "Memory path mismatch — config says X, data is at Y"
 
-**Cause:** `MEMORY_PATH` in env points to `.claude-flow/data/` (empty placeholder). Real data is in `.claude/memory.db`.
-**Fix:** Set `MEMORY_PATH` to `.../ruflo/.claude` (the parent directory). The server finds `memory.db` inside it.
+**Cause:** `config.yaml` claims `persistPath: .claude-flow/data/` (empty placeholder), but the actual data is in `.swarm/memory.db`. The `.claude/memory.db` file is also empty (schema only).
+**Fix:** Set `MEMORY_PATH` to `.../ruflo/.swarm` in **all three configs**:
+  - `~/.claude/settings.json` → `mcpServers.claudeflow-memory.env.MEMORY_PATH`
+  - `~/.hermes/config.yaml` → `mcp_servers.claudeflow-memory.env.MEMORY_PATH`
+  - `~/AppData/Local/hermes/config.yaml` → same
+**Verify:** run `node scripts/mcp-test-client.mjs --call memory_stats '{}'` and confirm `totalEntries > 0`.
 
 ### Issue 3: HTTP server starts then exits immediately (Windows)
 
@@ -464,14 +474,16 @@ hermes mcp test claudeflow-memory   # should report 293 again
 
 ```
 C:\Users\becke\Ai workspaces\claude\ruflo\
+├── .swarm\
+│   └── memory.db                ← THE memory data (SQLite + HNSW vectors) — 18 entries
 ├── .claude\
-│   ├── memory.db                ← THE memory data (SQLite + HNSW vectors)
+│   ├── memory.db                ← empty (schema only, NOT the live data)
 │   ├── settings.json            ← Project-local Claude Code settings
 │   ├── intelligence\            ← intelligence-ranker outputs
 │   └── agents\  skills\  commands\  ← Ruflo project-local
 ├── .claude-flow\
 │   ├── config.yaml              ← Runtime config (swarm, memory, neural, hooks, mcp)
-│   ├── data\                    ← (empty placeholder — real data in .claude/)
+│   ├── data\                    ← (empty placeholder — config.yaml points here but data is in .swarm)
 │   ├── hooks\  sessions\  logs\  ← runtime state
 │   └── agents\  learning\       ← per-agent state
 ├── node_modules\
@@ -484,15 +496,19 @@ C:\Users\becke\Ai workspaces\claude\ruflo\
 │   └── ruflo\                   ← Top-level ruflo package
 ├── scripts\
 │   ├── mcp-test-client.mjs      ← MCP test client (use to verify)
-│   ├── seed-initial-memory.mjs  ← Bulk seed durable knowledge
+│   ├── seed-initial-memory.mjs  ← Bulk seed durable knowledge (8 entries, idempotent)
+│   ├── auto-prewarm.mjs         ← SessionStart hook: 3 boot-time memory searches
 │   └── intelligence-ranker.cjs  ← PageRank + similarity ranker (working)
 ├── package.json                 ← {"dependencies": {"ruflo": "^3.10.37"}}
 └── docs\
-    └── CLAUDE_FLOW_GUIDE.md     ← THIS FILE
+    ├── CLAUDE_FLOW_GUIDE.md     ← THIS FILE
+    ├── CROSS_PLATFORM_PLAN.md   ← Linux + VPS deployment plan
+    └── MEMORY_GUIDE.md          ← Companion guide (from Sal's earlier work)
 ```
 
 **Two data locations to remember:**
-- `.claude/memory.db` — the actual SQLite data (read by `MEMORY_PATH=.../ruflo/.claude`)
+- `.swarm/memory.db` — the actual SQLite data (read by `MEMORY_PATH=.../ruflo/.swarm`) — **18 entries, 100% embedded as of 2026-06-05**
+- `.claude/memory.db` — empty (schema only, created during install but never written to)
 - `.claude-flow/` — runtime config + state files, NOT the data
 
 ---
