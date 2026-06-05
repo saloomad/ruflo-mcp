@@ -1,0 +1,262 @@
+[
+  {
+    "id": "mem-continuation-continuation---ruflo-project-0",
+    "key": "continuation-ruflo-project",
+    "content": "**Last update:** 2026-05-25\n**Last session:** Project scaffolded + moved into correct location (peer to computer Management/ and trading/).",
+    "summary": "CONTINUATION — Ruflo Project",
+    "namespace": "continuation",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CONTINUATION.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174942
+  },
+  {
+    "id": "mem-continuation-where-things-stand-1",
+    "key": "where-things-stand",
+    "content": "- Project lives at `C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\`\n- Learning outputs at `C:\\Users\\becke\\Ai workspaces\\shared\\learnings\\research\\` (separate from project shell)\n- Ruflo deep-dive done 2026-05-24 — comprehensive + raw + design-patterns MDs all in `../../shared/learnings/research/github/frameworks/`\n- 14 Ruflo plugins installed user-global (~3148 tok/session) — see `claude plugin list | grep @ruflo`\n- Sandbox at `~/ruflo-sandbox/`, source clone at `~/ruflo-source-readonly/`\n- 2 new gl",
+    "summary": "Where things stand",
+    "namespace": "continuation",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CONTINUATION.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174942
+  },
+  {
+    "id": "mem-continuation-next-session-start-2",
+    "key": "next-session-start",
+    "content": "1. Read this file\n2. Read `KANBAN.md` — pick from BACKLOG\n3. First slice: fix `github-project-deep-dive` skill to honor `CLAUDE_PROJECT_DIR` — currently hardcodes `~/claudecowork/` paths",
+    "summary": "Next session start",
+    "namespace": "continuation",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CONTINUATION.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174942
+  },
+  {
+    "id": "mem-continuation-open-decisions-3",
+    "key": "open-decisions",
+    "content": "1. **Skill path override:** `github-project-deep-dive` hardcodes `~/claudecowork/research/...`. When opened from THIS project, should it write to `../../shared/learnings/research/...` instead? Suggestion: detect `CLAUDE_PROJECT_DIR` env var and write relative to it.\n2. **Keep all 14 Ruflo plugins?** Cost is +3148 tok/session. Consider disabling cost-tracker (576 tok) and graph-intelligence (0 tok — packaging issue) first.\n3. **Port priority:** intelligence.cjs (4-8h, #1 value) vs dossier-investi",
+    "summary": "Open decisions",
+    "namespace": "continuation",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CONTINUATION.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174942
+  },
+  {
+    "id": "mem-continuation-cross-platform-state-4",
+    "key": "cross-platform-state",
+    "content": "| Platform | State |\n|---|---|\n| Windows (this machine) | Project + plugins + sandbox + clone all present |\n| Linux PC | Not synced — could GitHub-mirror if cross-machine needed |\n| Kimi VPS | Not synced |",
+    "summary": "Cross-platform state",
+    "namespace": "continuation",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CONTINUATION.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174942
+  },
+  {
+    "id": "mem-kanban-in-progress-1",
+    "key": "in-progress",
+    "content": "### #E — Hybrid enforcement gate redesign (Sal explicit 2026-06-04)\n**Status:** 3 of 4 changes done\n**Done:**\n- Built blast-radius-tiered Stop gate: `enforcement-classifier.sh` + `hybrid-enforcement-gate.sh` (NONE / FILE_CRITIC / FULL_COUNCIL). Replaced 4 overlapping Stop gates.\n- Fixed escape bug: \"override\" was writing session-wide flags; now per-event only.\n- Re-armed `orchestration-start-gate.sh` + `delegation-enforce-gate.sh` as exit-2 hard blocks (were wrongly advisory).\n**Pending (Change ",
+    "summary": "IN PROGRESS",
+    "namespace": "kanban",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\KANBAN.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174943
+  },
+  {
+    "id": "mem-kanban-backlog--priority-order--2",
+    "key": "backlog-priority-order-",
+    "content": "### #A — Rule 26b BLOCKING quality-gate hook (Tier 6) — **REWORK before wiring (2026-05-26 critic verdict)**\n**Status:** built at `_staging/skill-quality-gate.sh`, NOT wired. Critic found 3 critical/high issues:\n1. **Bash evasion** — hook fires on Write/Edit/MultiEdit only. Must add PostToolUse Bash hook that greps command for `> ~/.claude/skills/` redirects, OR document the gap in script header. (New Mode 39 captures this pattern.)\n2. **Cold-start fail-closed** — first session of any new day ha",
+    "summary": "BACKLOG (priority order)",
+    "namespace": "kanban",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\KANBAN.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174943
+  },
+  {
+    "id": "mem-kanban-deferred-3",
+    "key": "deferred",
+    "content": "### chimera-plugin-builder\n**Why deferred:** Sal doesn't currently publish or distribute plugins. Build when there's a shipping need.",
+    "summary": "DEFERRED",
+    "namespace": "kanban",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\KANBAN.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174943
+  },
+  {
+    "id": "mem-kanban-done-4",
+    "key": "done",
+    "content": "- [x] **2026-05-24** Ruflo comprehensive deep-dive — 4 MDs + 14 plugins + 2 skills + 2 failure modes + Rule 22 + Notion mirror\n- [x] **2026-05-25** Project scaffolded in correct location (`Ai workspaces/claude/ruflo/`) after initial mis-location in learnings/\n- [x] **2026-06-02** github-project-deep-dive skill upgraded: standardized paths (raw/github/frameworks/), topics extraction (wiki/topics/), ingest.py indexing, parallel() thunk fix. Workflow at ~/.claude/workflows/github-deep-dive.workflow",
+    "summary": "DONE",
+    "namespace": "kanban",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\KANBAN.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174943
+  },
+  {
+    "id": "mem-workflows-workflows---ruflo-project-0",
+    "key": "workflows-ruflo-project",
+    "content": "Workflows used here. Skills live in `~/.claude/skills/` (user-global) unless noted.\n\n---",
+    "summary": "WORKFLOWS — Ruflo Project",
+    "namespace": "workflows",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\WORKFLOWS.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174944
+  },
+  {
+    "id": "mem-workflows-github-project-deep-dive-1",
+    "key": "github-project-deep-dive",
+    "content": "**Skill:** `~/.claude/skills/github-project-deep-dive/SKILL.md`\n**Trigger:** any github.com URL, \"analyze this repo\", \"research X\", \"what does Y do\", \"should we use Z\"\n**Output (per skill spec):** `research/github/<category>/<repo>-YYYY-MM-DD.md` — currently hardcoded under `~/claudecowork/`. **Needs fix to honor `CLAUDE_PROJECT_DIR`** so opening from this project writes to `../../shared/learnings/research/github/...` instead. (Tracked in KANBAN slice #1.)\n\n**Phases:** Categorize → Clone-first →",
+    "summary": "github-project-deep-dive",
+    "namespace": "workflows",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\WORKFLOWS.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174944
+  },
+  {
+    "id": "mem-workflows-research-build-test-iterate-de-2",
+    "key": "research-build-test-iterate-decision",
+    "content": "**Skill:** `~/.claude/skills/research-build-test-iterate-decision/SKILL.md`\n**Trigger:** \"should we add X\", \"where does this live\", \"skill or hook\", any pattern-adoption decision\n**5 phases:** RESEARCH → BUILD (smallest version) → TEST → ITERATE (critic) → IMPLEMENT (Q1-Q9 placement tree + Phase 5b bundle considerations)\n\n---",
+    "summary": "research-build-test-iterate-decision",
+    "namespace": "workflows",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\WORKFLOWS.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174944
+  },
+  {
+    "id": "mem-workflows-test-case-results-3",
+    "key": "test-case-results",
+    "content": "**Ruflo deep-dive (2026-05-24)** — first test of `github-project-deep-dive`:\n- ✅ All 6 phases executed\n- ✅ Comprehensive MD: `../../shared/learnings/research/github/frameworks/ruflo-2026-05-24.md` (21 KB, 10 sections)\n- ✅ Raw extraction + design-patterns extraction alongside\n- ✅ Topic learnings extracted to cross-cutting/{memory-systems,agent-governance}/\n- ✅ Notion mirror created\n- ✅ Critic ran — 7 findings, 5 addressed\n- ⚠️ Skill output path hardcoded to chimera — needs fix (KANBAN slice #1)\n\n",
+    "summary": "Test case results",
+    "namespace": "workflows",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\WORKFLOWS.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174944
+  },
+  {
+    "id": "mem-workflows-future-workflows--queued--4",
+    "key": "future-workflows-queued-",
+    "content": "- `intelligence-cjs-port` (when porting intelligence.cjs + auto-memory-hook)\n- `plugin-bundle-builder` (deferred, only if Sal wants to ship Chimera as plugin)",
+    "summary": "Future workflows (queued)",
+    "namespace": "workflows",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\WORKFLOWS.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174944
+  },
+  {
+    "id": "mem-claude-ruflo---project-identity-0",
+    "key": "ruflo-project-identity",
+    "content": "**Project purpose:** Testbed + durable home for Ruflo (claude-flow) evaluation and follow-on work. First test case for the `github-project-deep-dive` workflow.\n\n**Project root:** `C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\`\n**Learning outputs:** `C:\\Users\\becke\\Ai workspaces\\shared\\learnings\\research\\` (separate dir — pure outputs, no project shell)\n**Peer projects:** `../computer Management/`, `../trading/` (siblings under `Ai workspaces/claude/`)\n\n---",
+    "summary": "RUFLO — Project Identity",
+    "namespace": "claude",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CLAUDE.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174945
+  },
+  {
+    "id": "mem-claude----layout-1",
+    "key": "-layout",
+    "content": "| Here (`ruflo/`) | Output (`../../shared/learnings/research/`) |\n|---|---|\n| CLAUDE.md (this file) | github/frameworks/ — Ruflo deep-dive MDs |\n| KANBAN.md | topics/cross-cutting/ — extracted learnings by topic |\n| CONTINUATION.md | INDEX.md + LEARNINGS_INDEX.md |\n| WORKFLOWS.md | |\n| .claude/ (project-local skills/agents — empty for now) | |\n| handoffs/, session-states/ | |\n\n---",
+    "summary": "🎯 Layout",
+    "namespace": "claude",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CLAUDE.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174945
+  },
+  {
+    "id": "mem-claude----session-start-2",
+    "key": "-session-start",
+    "content": "1. Read this CLAUDE.md\n2. Read `KANBAN.md` for active slices\n3. Read `CONTINUATION.md` for last session state\n4. Use global skills from `~/.claude/skills/` — `github-project-deep-dive`, `research-build-test-iterate-decision`, etc.\n5. **Heads up:** when this project opens, both global `~/CLAUDE.md` AND this file load. Token cost stacks.\n\n---",
+    "summary": "🚨 SESSION START",
+    "namespace": "claude",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CLAUDE.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174945
+  },
+  {
+    "id": "mem-claude----where-to-read-existing-rufl-3",
+    "key": "-where-to-read-existing-ruflo-work",
+    "content": "- Comprehensive deep-dive: `../../shared/learnings/research/github/frameworks/ruflo-2026-05-24.md`\n- Design patterns extracted: `../../shared/learnings/research/github/frameworks/ruflo-design-patterns-2026-05-24.md`\n- Raw extraction notes: `../../shared/learnings/research/github/frameworks/ruflo-extraction-raw-2026-05-24.md`\n- Topic learnings (PageRank ranker, dossier pattern, capability=bundle): `../../shared/learnings/research/topics/cross-cutting/{memory-systems,agent-governance}/insights.md`",
+    "summary": "📁 Where to read existing Ruflo work",
+    "namespace": "claude",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CLAUDE.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174945
+  },
+  {
+    "id": "mem-claude----house-rules-for-this-projec-4",
+    "key": "-house-rules-for-this-project",
+    "content": "1. **Output goes to `../../shared/learnings/research/`** — never to this `ruflo/` dir\n2. **Always clone before installing** — per global CLAUDE.md Rule 22\n3. **Measure plugin cost via `claude plugin details` before deciding to keep**\n4. **Run `ai-stupidity-critic` on every adoption recommendation**\n5. **One slice at a time** — don't try to port intelligence.cjs AND adapt dossier-investigator in the same session\n\n---",
+    "summary": "🚦 House rules for this project",
+    "namespace": "claude",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CLAUDE.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174945
+  },
+  {
+    "id": "mem-claude----cross-project-references-5",
+    "key": "-cross-project-references",
+    "content": "- Global Claude config: `~/.claude/` (always loads)\n- Sister project Chimera trading: `~/claudecowork/` (live work)\n- Failure mode KB: `~/claudecowork/.learnings/AI_FAILURE_MODES.md`\n- Global Rule 22 (capability=bundle pattern, came from Ruflo work): `~/CLAUDE.md`\n\n*Created 2026-05-25. First slice: fix `github-project-deep-dive` skill so it honors `CLAUDE_PROJECT_DIR` and writes output to this project's expected location.*",
+    "summary": "🔗 Cross-project references",
+    "namespace": "claude",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\CLAUDE.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1780585174945
+  }
+]

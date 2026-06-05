@@ -1,0 +1,16 @@
+{
+  "name": "ruflo",
+  "version": "1.0.0",
+  "description": "**Location:** `C:\\Users\\becke\\Ai workspaces\\claude\\ruflo\\` **Learning outputs:** `C:\\Users\\becke\\Ai workspaces\\shared\\learnings\\research\\` **Peer projects:** `../computer Management/`, `../trading/` **Created:** 2026-05-25",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ruflo": "^3.10.37"
+  }
+}

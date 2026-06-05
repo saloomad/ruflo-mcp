@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "updatedAt": 1780588831671,
+  "nodeCount": 20,
+  "nodes": {
+    "mem-continuation-continuation---ruflo-project-0": {
+      "id": "mem-continuation-continuation---ruflo-project-0",
+      "category": "continuation",
+      "confidence": 0.53,
+      "accessCount": 1,
+      "createdAt": 1780585174942
+    },
+    "mem-continuation-where-things-stand-1": {
+      "id": "mem-continuation-where-things-stand-1",
+      "category": "continuation",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174942
+    },
+    "mem-continuation-next-session-start-2": {
+      "id": "mem-continuation-next-session-start-2",
+      "category": "continuation",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174942
+    },
+    "mem-continuation-open-decisions-3": {
+      "id": "mem-continuation-open-decisions-3",
+      "category": "continuation",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174942
+    },
+    "mem-continuation-cross-platform-state-4": {
+      "id": "mem-continuation-cross-platform-state-4",
+      "category": "continuation",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174942
+    },
+    "mem-kanban-in-progress-1": {
+      "id": "mem-kanban-in-progress-1",
+      "category": "kanban",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174943
+    },
+    "mem-kanban-backlog--priority-order--2": {
+      "id": "mem-kanban-backlog--priority-order--2",
+      "category": "kanban",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174943
+    },
+    "mem-kanban-deferred-3": {
+      "id": "mem-kanban-deferred-3",
+      "category": "kanban",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174943
+    },
+    "mem-kanban-done-4": {
+      "id": "mem-kanban-done-4",
+      "category": "kanban",
+      "confidence": 0.53,
+      "accessCount": 1,
+      "createdAt": 1780585174943
+    },
+    "mem-workflows-workflows---ruflo-project-0": {
+      "id": "mem-workflows-workflows---ruflo-project-0",
+      "category": "workflows",
+      "confidence": 0.53,
+      "accessCount": 1,
+      "createdAt": 1780585174944
+    },
+    "mem-workflows-github-project-deep-dive-1": {
+      "id": "mem-workflows-github-project-deep-dive-1",
+      "category": "workflows",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174944
+    },
+    "mem-workflows-research-build-test-iterate-de-2": {
+      "id": "mem-workflows-research-build-test-iterate-de-2",
+      "category": "workflows",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174944
+    },
+    "mem-workflows-test-case-results-3": {
+      "id": "mem-workflows-test-case-results-3",
+      "category": "workflows",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174944
+    },
+    "mem-workflows-future-workflows--queued--4": {
+      "id": "mem-workflows-future-workflows--queued--4",
+      "category": "workflows",
+      "confidence": 0.53,
+      "accessCount": 1,
+      "createdAt": 1780585174944
+    },
+    "mem-claude-ruflo---project-identity-0": {
+      "id": "mem-claude-ruflo---project-identity-0",
+      "category": "claude",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174945
+    },
+    "mem-claude----layout-1": {
+      "id": "mem-claude----layout-1",
+      "category": "claude",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174945
+    },
+    "mem-claude----session-start-2": {
+      "id": "mem-claude----session-start-2",
+      "category": "claude",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174945
+    },
+    "mem-claude----where-to-read-existing-rufl-3": {
+      "id": "mem-claude----where-to-read-existing-rufl-3",
+      "category": "claude",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174945
+    },
+    "mem-claude----house-rules-for-this-projec-4": {
+      "id": "mem-claude----house-rules-for-this-projec-4",
+      "category": "claude",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1780585174945
+    },
+    "mem-claude----cross-project-references-5": {
+      "id": "mem-claude----cross-project-references-5",
+      "category": "claude",
+      "confidence": 0.53,
+      "accessCount": 1,
+      "createdAt": 1780585174945
+    }
+  },
+  "edges": [
+    {
+      "sourceId": "mem-continuation-continuation---ruflo-project-0",
+      "targetId": "mem-continuation-where-things-stand-1",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-continuation-where-things-stand-1",
+      "targetId": "mem-continuation-next-session-start-2",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-continuation-next-session-start-2",
+      "targetId": "mem-continuation-open-decisions-3",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-continuation-open-decisions-3",
+      "targetId": "mem-continuation-cross-platform-state-4",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-kanban-in-progress-1",
+      "targetId": "mem-kanban-backlog--priority-order--2",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-kanban-backlog--priority-order--2",
+      "targetId": "mem-kanban-deferred-3",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-kanban-deferred-3",
+      "targetId": "mem-kanban-done-4",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-workflows-workflows---ruflo-project-0",
+      "targetId": "mem-workflows-github-project-deep-dive-1",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-workflows-github-project-deep-dive-1",
+      "targetId": "mem-workflows-research-build-test-iterate-de-2",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-workflows-research-build-test-iterate-de-2",
+      "targetId": "mem-workflows-test-case-results-3",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-workflows-test-case-results-3",
+      "targetId": "mem-workflows-future-workflows--queued--4",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-claude-ruflo---project-identity-0",
+      "targetId": "mem-claude----layout-1",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-claude----layout-1",
+      "targetId": "mem-claude----session-start-2",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-claude----session-start-2",
+      "targetId": "mem-claude----where-to-read-existing-rufl-3",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-claude----where-to-read-existing-rufl-3",
+      "targetId": "mem-claude----house-rules-for-this-projec-4",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-claude----house-rules-for-this-projec-4",
+      "targetId": "mem-claude----cross-project-references-5",
+      "type": "temporal",
+      "weight": 0.5
+    }
+  ],
+  "pageRanks": {
+    "mem-continuation-continuation---ruflo-project-0": 0.020114764142229746,
+    "mem-continuation-where-things-stand-1": 0.037212291872584374,
+    "mem-continuation-next-session-start-2": 0.05174518716620795,
+    "mem-continuation-open-decisions-3": 0.06409819765895569,
+    "mem-continuation-cross-platform-state-4": 0.07459830620763117,
+    "mem-kanban-in-progress-1": 0.020114764142229746,
+    "mem-kanban-backlog--priority-order--2": 0.037212291872584374,
+    "mem-kanban-deferred-3": 0.05174518716620795,
+    "mem-kanban-done-4": 0.06409819765895569,
+    "mem-workflows-workflows---ruflo-project-0": 0.020114764142229746,
+    "mem-workflows-github-project-deep-dive-1": 0.037212291872584374,
+    "mem-workflows-research-build-test-iterate-de-2": 0.05174518716620795,
+    "mem-workflows-test-case-results-3": 0.06409819765895569,
+    "mem-workflows-future-workflows--queued--4": 0.07459830620763117,
+    "mem-claude-ruflo---project-identity-0": 0.020114764142229746,
+    "mem-claude----layout-1": 0.037212291872584374,
+    "mem-claude----session-start-2": 0.05174518716620795,
+    "mem-claude----where-to-read-existing-rufl-3": 0.06409819765895569,
+    "mem-claude----house-rules-for-this-projec-4": 0.07459830620763117,
+    "mem-claude----cross-project-references-5": 0.08352331801719558
+  }
+}

@@ -1,0 +1,38 @@
+# Node / npm
+node_modules/
+npm-debug.log
+*.log
+
+# Claude Flow runtime state (regenerable, large, ephemeral)
+.claude-flow/sessions/
+.claude-flow/logs/
+.claude-flow/metrics/
+.claude-flow/security/
+.claude-flow/workflows/
+.claude-flow/neural/
+.claude-flow/data/
+.claude-flow/learning/
+.claude-flow/agents/
+.swarm/
+.session-states/
+.handoffs/
+
+# SQLite WAL (regenerated on shutdown)
+.claude/memory.db-journal
+.claude/memory.db-wal
+.claude/memory.db-shm
+
+# Backup / temp files (specifically named — NOT a wildcard blanket)
+*.bak
+*.bak-*
+*.tmp
+CLAUDE.md.bak-*
+KANBAN.md.bak-*
+INSTALL_LOG_*.md.bak-*
+HANDOFF.md.bak-*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

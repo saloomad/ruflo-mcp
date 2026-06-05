@@ -1,0 +1,6 @@
+{
+  "dataDir": ".claude/intelligence/data",
+  "memorySources": ["CONTINUATION.md", "KANBAN.md", "WORKFLOWS.md", "CLAUDE.md"],
+  "topK": 5,
+  "scoreThreshold": 0.05
+}
